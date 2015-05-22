@@ -1,0 +1,7 @@
+$("#location-modal").html("<%= escape_javascript(render 'form') %>");
+var $location_modal = $("#location-modal").parent().parent().parent();
+$location_modal.modal("show");
+$(".location-form").attr("data-remote", "true");
+$(document).on("ajax:success", ".location-form", function(){
+  window.location.reload(false);
+});
